@@ -8,6 +8,7 @@ var Word = function (wordToGuess) {
         for (var i = 0; i < stringToArray.length; i++) {
             stringToArray[i];
         }
+        console.log()
     }
 }
 

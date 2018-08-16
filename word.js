@@ -1,17 +1,28 @@
 const letter = require("./letter.js");
 
+
+
 var Word = function (wordToGuess) {
-    this.newLetterArray = [];
-    this.stringIT = function() {
+    this.new = [];
+    this.stringIt = function() {
+        // blank array for spaces or letters to be pushed to once render() is run
+        var blankArray = [];
+        //takes the wordToGuess string and converts it to an array
         var stringToArray = Array.from(wordToGuess);
         console.log(stringToArray);
-        for (var i = 0; i < stringToArray.length; i++) {
-            stringToArray[i];
+        //loops through the new array and uses the letter.js constructor for each letter.
+        //takes each letter and runs render() to output a _ or a letter
+        for (let i = 0; i < stringToArray.length; i++) {
+            var blankOrLetter = new letter(stringToArray[i]);
+            blankArray.push(blankOrLetter.render());
         }
-        console.log()
-    }
-}
+        // logs the blank array, but cannot log the console.logs from letter.js
+        console.log(blankArray);
+    };
+};
 
 
-var newWord = new Word ("Anthony");
-console.log(newWord.stringIT());
+
+var abc = new Word ("Anthony")
+
+console.log(abc.stringIt());

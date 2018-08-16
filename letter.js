@@ -2,46 +2,39 @@ var inquirer = require("inquirer");
 
 
 
-
-var Space = function (letter) {
+var Space = function(letter) {
     this.character = letter;
-    this.guessed = true;
+    this.guessed = false;
     this.render = function() {
         if (this.guessed === true) {
-            console.log(letter);
+            return letter;
         } else {
-            console.log("_");
+            return "_";
         }
-    };
-    this.check = function () {
-        inquirer.prompt([
-            {   
+    }; 
+    this.check = function() {
+        inquirer.prompt ([
+            {
                 name: "guess",
-                message: "Guess a letter A-Z"
+                message: "Guess a letter..."
             }
         ]).then(function(answers) {
             if (answers.guess === letter) {
                 guessed = true;
                 console.log(answers.guess);
-                console.log("Good Job!");
+                console.log("Correct!");
             } else {
-                guessed = false;
-                console.log("Guess Again!");
+                gussed = false;
+                console.log("Guess again");
             }
-        })
+        });
     };
-
-};
-
-var newLetter = new Space("a");
+}
 
 
-// console.log(newLetter);
+// var test = new space("A");
+// console.log(test);
+// console.log(test.render());
 
-// console.log(newLetter.render());
-// console.log(newLetter.check());
 
 module.exports = Space;
-
-
-

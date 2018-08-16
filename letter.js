@@ -17,9 +17,11 @@ var Space = function (letter) {
             guessed = true;
             console.log(character);
             console.log("Correct!");
+            return true;
         } else {
             guessed = false;
             console.log("Guess again");
+            return false;
         }
     };
 
@@ -48,6 +50,6 @@ var Space = function (letter) {
 var test = new Space("A");
 // console.log(test);
 // console.log(test.render());
-console.log(test.check("A"));
+// console.log(test.check("A"));
 
 module.exports = Space;

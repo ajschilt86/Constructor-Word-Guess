@@ -9,11 +9,12 @@ var Word = function (wordToGuess) {
         var blankArray = [];
         //takes the wordToGuess string and converts it to an array
         var stringToArray = Array.from(wordToGuess);
-        console.log(stringToArray);
+        // console.log(stringToArray);
         //loops through the new array and uses the letter.js constructor for each letter.
         //takes each letter and runs render() to output a _ or a letter
         for (let i = 0; i < stringToArray.length; i++) {
             var blankOrLetter = new letter(stringToArray[i]);
+            blankOrLetter.check();
             blankArray.push(blankOrLetter.render());
         }
         // logs the blank array, but cannot log the console.logs from letter.js
@@ -21,7 +22,7 @@ var Word = function (wordToGuess) {
     };
     this.wordGuess = function (character) {
         var stringToArray = Array.from(wordToGuess);
-        console.log(stringToArray);
+        // console.log(stringToArray);
 
         for (let i = 0; i < stringToArray.length; i++) {
             var blankOrLetter = new letter(stringToArray[i]);
@@ -37,5 +38,7 @@ var Word = function (wordToGuess) {
 
 var abc = new Word("Anthony")
 
-console.log(abc.stringIt());
-console.log(abc.wordGuess("A"));
+// console.log(abc.stringIt());
+// console.log(abc.wordGuess("A"));
+
+module.exports = Word;

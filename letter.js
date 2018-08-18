@@ -1,27 +1,22 @@
-var inquirer = require("inquirer");
+// var inquirer = require("inquirer");
 
 
 
-var Space = function (letter) {
-    this.character = letter;
+var Letter = function (letter) {
+    this.letter = letter;
     this.guessed = false;
-    this.render = function () {
-        if (this.guessed === true) {
-            return letter;
+    this.renderCharacter = function () {
+        if (this.guessed) {
+            return this.letter;
         } else {
             return "_";
         }
     };
-    this.check = function (character) {
-        if (character === letter) {
-            guessed = true;
-            console.log(character);
-            console.log("Correct!");
-            return true;
+    this.check = function (letter) {
+        if (letter = this.letter) {
+            this.guessed = true;          
         } else {
-            guessed = false;
-            console.log("Guess again");
-            return false;
+            this.guessed = false;          
         }
     };
 
@@ -47,9 +42,9 @@ var Space = function (letter) {
 }
 
 
-var test = new Space("A");
+// var test = new Space("A");
 // console.log(test);
 // console.log(test.render());
 // console.log(test.check("A"));
 
-module.exports = Space;
+module.exports = Letter;
